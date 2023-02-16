@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "902815805372",
+    "project_id": "accessin-7fbe1",
+    "storage_bucket": "accessin-7fbe1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902815805372:android:bfcf57eaa0dcf6ec0145b9",
+        "android_client_info": {
+          "package_name": "com.accessin.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902815805372-0eqrnc9vqh1nikidjcfg0ma95k3n3vt1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.accessin.app",
+            "certificate_hash": "e8884978b6183cfea4155e6a7105761234a9ba89"
+          }
+        },
+        {
+          "client_id": "902815805372-i2dkdejj74jiqqbv71sk28ifupf3kt0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2l5Xba7LBX9A3dzzuSyLxgZSMnX453Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902815805372-i2dkdejj74jiqqbv71sk28ifupf3kt0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

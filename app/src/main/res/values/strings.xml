@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Access In</string>
+    <string name="error_in_finding_location">Error in finding location!</string>
 </resources>
