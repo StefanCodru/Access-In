@@ -18,6 +18,7 @@ import com.accessin.app.model.util.LocationTypeConstants
 import com.accessin.app.model.util.UiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.concurrent.CountDownLatch
 
 class AccessInViewModel(
     private val app: Application,
@@ -59,9 +60,11 @@ class AccessInViewModel(
         try {
             if(isNetworkAvailable(app)){
                 _scrollableSections.postValue(UiState.Loading)
-                getScrollableSectionsUseCase.execute {
+
+                getScrollableSectionsUseCase.execute() {
                     _scrollableSections.postValue(it)
                 }
+
             } else {
                 _scrollableSections.postValue(UiState.Error("No network connection"))
             }

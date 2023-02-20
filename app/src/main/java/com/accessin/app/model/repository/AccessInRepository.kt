@@ -8,7 +8,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface AccessInRepository {
 
-    suspend fun getScrollableSections(result: (UiState<List<ScrollableSection>>) -> Unit)
+    suspend fun getLocationsNearUser(result: (UiState<ScrollableSection>) -> Unit)
+    suspend fun getTopRatedLocations(result: (UiState<ScrollableSection>) -> Unit)
     suspend fun getLocationAccessibilityDetails(locationID: String, result: (UiState<LocationAccessibilityDetails?>) -> Unit)
     suspend fun searchForSpecificLocationType(locationType: String, result: (UiState<List<Location>>) -> Unit)
     suspend fun searchAccordingToQuery(searchQuery: String, result: (UiState<List<Location>>) -> Unit)

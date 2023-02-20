@@ -6,6 +6,7 @@ import androidx.room.TypeConverters
 import com.accessin.app.model.util.GeoPointTypeConverter
 import com.accessin.app.model.util.MapTypeConverter
 import com.google.firebase.firestore.GeoPoint
+import java.io.Serializable
 
 @Entity(tableName = "locations_table")
 data class Location(
@@ -20,7 +21,7 @@ data class Location(
     val location_tags: Map<String, Boolean>?,
     val location_type: String?,
     val name: String?
-) {
+): Serializable {
     constructor() : this(
         null,
         "",

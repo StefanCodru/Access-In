@@ -6,13 +6,54 @@ import com.accessin.app.model.data.dataclasses.ScrollableSection
 import com.accessin.app.model.util.FireStoreFields
 import com.accessin.app.model.util.UiState
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class FireStoreBackendImpl(private val database: FirebaseFirestore): FireStoreBackend {
 
     private val TAG = "FireStoreBackendImpl"
 
-    override suspend fun getScrollableSections(result: (UiState<List<ScrollableSection>>) -> Unit) {
-        TODO("Change this and create many different functions for every scrollable section type")
+    override suspend fun getLocationsNearUser(result: (UiState<ScrollableSection>) -> Unit) {
+        val docRef = database.collection(FireStoreFields.TABLE_LOCATIONS)
+
+        docRef.orderBy("general_rating", Query.Direction.DESCENDING)
+            .limit(5)
+            .get()
+            .addOnSuccessListener { documents ->
+                val locationsList = arrayListOf<Location>()
+
+                for (document in documents) {
+                    val location = document.toObject(Location::class.java)
+                    locationsList.add(location)
+                }
+
+                val section = ScrollableSection("Near you", locationsList)
+                result.invoke(UiState.Success(section))
+            }
+            .addOnFailureListener { exception ->
+                result.invoke(UiState.Error(exception.localizedMessage))
+            }
+    }
+
+    override suspend fun getTopRatedLocations(result: (UiState<ScrollableSection>) -> Unit) {
+        val docRef = database.collection(FireStoreFields.TABLE_LOCATIONS)
+
+        docRef.orderBy("general_rating", Query.Direction.DESCENDING)
+            .limit(5)
+            .get()
+            .addOnSuccessListener { documents ->
+                val locationsList = arrayListOf<Location>()
+
+                for (document in documents) {
+                    val location = document.toObject(Location::class.java)
+                    locationsList.add(location)
+                }
+
+                val section = ScrollableSection("Top Rated", locationsList)
+                result.invoke(UiState.Success(section))
+            }
+            .addOnFailureListener { exception ->
+                result.invoke(UiState.Error(exception.localizedMessage))
+            }
     }
 
     override suspend fun getLocationAccessibilityDetails(locationID: String, result: (UiState<LocationAccessibilityDetails?>) -> Unit) {

@@ -15,8 +15,12 @@ class AccessInRepositoryImpl(
     private val localDataSource: LocalDataSource
 ): AccessInRepository {
 
-    override suspend fun getScrollableSections(result: (UiState<List<ScrollableSection>>) -> Unit) {
-        remoteDataSource.getScrollableSections(result)
+    override suspend fun getLocationsNearUser(result: (UiState<ScrollableSection>) -> Unit) {
+        remoteDataSource.getLocationsNearUser(result)
+    }
+
+    override suspend fun getTopRatedLocations(result: (UiState<ScrollableSection>) -> Unit) {
+        remoteDataSource.getTopRatedLocations(result)
     }
 
     override suspend fun getLocationAccessibilityDetails(locationID: String, result: (UiState<LocationAccessibilityDetails?>) -> Unit) {

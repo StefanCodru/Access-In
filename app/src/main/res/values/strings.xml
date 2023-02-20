@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Access In</string>
     <string name="error_in_finding_location">Error in finding location!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quickstart">Quickstart</string>
+    <string name="explore">Explore</string>
+    <string name="map">Map</string>
+    <string name="saved">Saved</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="pharmacies">Pharmacies</string>
+    <string name="coffee_shops">Coffee Shops</string>
+    <string name="tourist_attractions">Tourist Attractions</string>
+    <string name="hotels">Hotels</string>
+    <string name="transportation">Transportation</string>
 </resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/exploreFragment"
+        android:title="@string/explore"
+        android:textAppearance="@style/Subtitle1"
+        android:icon="@drawable/ic_search"/>
+    <item
+        android:id="@+id/mapFragment"
+        android:title="@string/map"
+        android:textAppearance="@style/Subtitle1"
+        android:icon="@drawable/ic_map_marker"/>
+    <item
+        android:id="@+id/savedLocationsFragment"
+        android:title="@string/saved"
+        android:textAppearance="@style/Subtitle1"
+        android:icon="@drawable/ic_heart"/>
+
+
+</menu>

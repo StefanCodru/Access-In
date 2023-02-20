@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/exploreFragment">
+
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.accessin.app.view.fragments.ExploreFragment"
+        android:label="Explore Fragment"
+        tools:layout="@layout/fragment_explore_fragment" >
+        <action
+            android:id="@+id/action_exploreFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.accessin.app.view.fragments.MapFragment"
+        android:label="Map Fragment"
+        tools:layout="@layout/fragment_map" >
+        <argument
+            android:name="selected_location"
+            app:argType="com.accessin.app.model.data.dataclasses.Location" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedLocationsFragment"
+        android:name="com.accessin.app.view.fragments.SavedLocationsFragment"
+        android:label="Saved Locations Fragment"
+        tools:layout="@layout/fragment_saved_locations" />
+</navigation>

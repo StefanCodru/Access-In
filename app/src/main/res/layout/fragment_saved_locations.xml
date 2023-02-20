@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    android:clipToPadding="false"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragments.SavedLocationsFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/saved_locations_fragment_user_profile_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/blue"
+        android:elevation="3dp"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/saved_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saved"
+        android:textColor="@color/dark"
+        android:textAppearance="@style/Headline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saved_locations_fragment_user_profile_image"/>
+
+
+    <ProgressBar
+        android:id="@+id/saved_locations_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/saved_locations_recyclerview"
+        app:layout_constraintEnd_toEndOf="@id/saved_locations_recyclerview"
+        app:layout_constraintTop_toTopOf="@id/saved_locations_recyclerview"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/saved_locations_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saved_headline"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
