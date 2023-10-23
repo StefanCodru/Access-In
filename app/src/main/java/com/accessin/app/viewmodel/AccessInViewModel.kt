@@ -33,7 +33,6 @@ class AccessInViewModel(
 
 
     // Local Datasource
-
     fun deleteLocation(location: Location) = viewModelScope.launch {
         deleteLocationUseCase.execute(location)
     }
@@ -50,7 +49,6 @@ class AccessInViewModel(
 
 
     // Remote DataSource
-
     private val _scrollableSections: MutableLiveData<UiState<List<ScrollableSection>>> = MutableLiveData()
     val scrollableSections: LiveData<UiState<List<ScrollableSection>>>
         get() = _scrollableSections
@@ -61,7 +59,8 @@ class AccessInViewModel(
             if(isNetworkAvailable(app)){
                 _scrollableSections.postValue(UiState.Loading)
 
-                getScrollableSectionsUseCase.execute() {
+                // TODO: Not make this hardcoded
+                getScrollableSectionsUseCase.execute(44.45242, 26.082115) {
                     _scrollableSections.postValue(it)
                 }
 

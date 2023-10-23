@@ -44,7 +44,8 @@ class ScrollableSectionsAdapter: RecyclerView.Adapter<ScrollableSectionsAdapter.
 
     inner class ScrollableSectionsViewHolder(val binding: ScrollableSectionsItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(scrollableSection: ScrollableSection) {
-            binding.scrollableSectionTitle.text = scrollableSection.name
+            binding.scrollableSectionTitle.text = scrollableSection.name // Set title
+
             val childMembersAdapter = ScrollableSectionAdapter()
             binding.scrollableSectionItemsRecyclerview.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL,false)
             binding.scrollableSectionItemsRecyclerview.adapter = childMembersAdapter

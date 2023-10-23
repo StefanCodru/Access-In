@@ -21,6 +21,8 @@
         tools:layout="@layout/fragment_map" >
         <argument
             android:name="selected_location"
+            app:nullable="true"
+            android:defaultValue="@null"
             app:argType="com.accessin.app.model.data.dataclasses.Location" />
     </fragment>
     <fragment

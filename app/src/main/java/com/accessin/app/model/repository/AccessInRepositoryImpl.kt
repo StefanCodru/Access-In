@@ -1,5 +1,6 @@
 package com.accessin.app.model.repository
 
+import android.util.Log
 import com.accessin.app.model.data.dataclasses.Location
 import com.accessin.app.model.data.dataclasses.LocationAccessibilityDetails
 import com.accessin.app.model.data.dataclasses.ScrollableSection
@@ -15,8 +16,8 @@ class AccessInRepositoryImpl(
     private val localDataSource: LocalDataSource
 ): AccessInRepository {
 
-    override suspend fun getLocationsNearUser(result: (UiState<ScrollableSection>) -> Unit) {
-        remoteDataSource.getLocationsNearUser(result)
+    override suspend fun getLocationsNearUser(userLatitude: Double, userLongitude: Double, result: (UiState<ScrollableSection>) -> Unit) {
+        remoteDataSource.getLocationsNearUser(userLatitude, userLongitude, result)
     }
 
     override suspend fun getTopRatedLocations(result: (UiState<ScrollableSection>) -> Unit) {
@@ -46,8 +47,5 @@ class AccessInRepositoryImpl(
     override fun getSavedLocations(): Flow<List<Location>> {
         return localDataSource.getSavedLocations()
     }
-
-
-
 
 }

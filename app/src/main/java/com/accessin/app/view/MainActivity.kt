@@ -15,6 +15,7 @@ import com.accessin.app.model.util.UiState
 import com.accessin.app.view.adapters.SavedLocationsAdapter
 import com.accessin.app.view.adapters.ScrollableSectionAdapter
 import com.accessin.app.view.adapters.ScrollableSectionsAdapter
+import com.accessin.app.view.adapters.SearchedLocationsAdapter
 import com.accessin.app.viewmodel.AccessInViewModel
 import com.accessin.app.viewmodel.AccessInViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var savedLocationsAdapter: SavedLocationsAdapter
+
+    @Inject
+    lateinit var searchedLocationsAdapter: SearchedLocationsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

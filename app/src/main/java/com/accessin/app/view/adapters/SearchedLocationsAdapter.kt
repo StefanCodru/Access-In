@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.accessin.app.databinding.ScrollableSectionLocationItemBinding
+import com.accessin.app.databinding.SearchedLocationItemBinding
 import com.accessin.app.model.data.dataclasses.Location
 import com.squareup.picasso.Picasso
 
-class ScrollableSectionAdapter:  RecyclerView.Adapter<ScrollableSectionAdapter.ScrollableSectionViewHolder>() {
+class SearchedLocationsAdapter:  RecyclerView.Adapter<SearchedLocationsAdapter.SearchedLocationsViewHolder>() {
 
     private val callback = object: DiffUtil.ItemCallback<Location>(){
         override fun areItemsTheSame(oldItem: Location, newItem: Location): Boolean {
@@ -23,12 +24,12 @@ class ScrollableSectionAdapter:  RecyclerView.Adapter<ScrollableSectionAdapter.S
 
     val differ = AsyncListDiffer(this, callback)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScrollableSectionViewHolder {
-        val binding = ScrollableSectionLocationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ScrollableSectionViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchedLocationsViewHolder {
+        val binding = SearchedLocationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SearchedLocationsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ScrollableSectionViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchedLocationsViewHolder, position: Int) {
         val location = differ.currentList[position]
         holder.bind(location)
     }
@@ -38,12 +39,14 @@ class ScrollableSectionAdapter:  RecyclerView.Adapter<ScrollableSectionAdapter.S
     }
 
 
-    inner class ScrollableSectionViewHolder(val binding: ScrollableSectionLocationItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class SearchedLocationsViewHolder(val binding: SearchedLocationItemBinding): RecyclerView.ViewHolder(binding.root){
 
-        fun bind(location: Location) {
-            binding.scrollableSectionLocationTitle.text = location.name
-            binding.scrollableSectionLocationRating.rating = location.general_rating?.toFloat()!!
-            Picasso.get().load(location.image_url).into(binding.scrollableSectionLocationImage)
+
+        fun bind(location: Location){
+            binding.searchedLocationTitle.text = location.name
+            binding.searchedLocationAddress.text = location.address
+            binding.searchedLocationRating.rating = location.general_rating?.toFloat()!!
+            Picasso.get().load("https://newsviews.thuraswiss.com/wp-content/uploads/2019/10/Starbucks-postpones-Myanmar-entry.jpg").into(binding.searchedLocationItemImage)
 
             binding.root.setOnClickListener {
                 onItemClickListener?.let {

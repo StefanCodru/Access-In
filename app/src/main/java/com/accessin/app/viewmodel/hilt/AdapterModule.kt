@@ -7,6 +7,7 @@ import com.accessin.app.model.data.room.AccessInDatabase
 import com.accessin.app.view.adapters.SavedLocationsAdapter
 import com.accessin.app.view.adapters.ScrollableSectionAdapter
 import com.accessin.app.view.adapters.ScrollableSectionsAdapter
+import com.accessin.app.view.adapters.SearchedLocationsAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,6 +28,12 @@ class AdapterModule {
     @Provides
     fun provideSavedLocationsAdapter(): SavedLocationsAdapter {
         return SavedLocationsAdapter()
+    }
+
+    @Singleton
+    @Provides
+    fun provideSearchedLocationsAdapter(): SearchedLocationsAdapter {
+        return SearchedLocationsAdapter()
     }
 
 

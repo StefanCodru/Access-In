@@ -9,15 +9,14 @@ import java.util.concurrent.CountDownLatch
 
 class GetScrollableSectionsUseCase(val accessInRepository: AccessInRepository) {
 
-    suspend fun execute(result: (UiState<List<ScrollableSection>>) -> Unit) {
+    suspend fun execute(userLatitude: Double, userLongitude: Double, result: (UiState<List<ScrollableSection>>) -> Unit) {
 
         val countDownLatch = CountDownLatch(2)
         val scrollableSectionsList = mutableListOf<ScrollableSection>()
 
-
         CoroutineScope(Dispatchers.IO).launch {
 
-            val nearbyLocationsAsync = async { accessInRepository.getLocationsNearUser { section ->
+            val nearbyLocationsAsync = async { accessInRepository.getLocationsNearUser(userLatitude, userLongitude) { section ->
 
                 if(section is UiState.Success) {
                     scrollableSectionsList.add(section.data)
