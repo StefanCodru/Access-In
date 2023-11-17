@@ -84,7 +84,9 @@ class FireStoreBackendImpl(private val database: FirebaseFirestore): FireStoreBa
     override suspend fun getTopRatedLocations(result: (UiState<ScrollableSection>) -> Unit) {
         val docRef = database.collection(FireStoreFields.TABLE_LOCATIONS)
 
-        docRef.orderBy(FireStoreFields.AREAS_INFO_FIELD + "." + FireStoreFields.GENERAL_RATING_FIELD, Query.Direction.DESCENDING)
+        Log.i(TAG, "firebase location blah: ")
+
+        docRef.orderBy(FireStoreFields.GENERAL_RATING_FIELD, Query.Direction.DESCENDING)
             .limit(5)
             .get()
             .addOnSuccessListener { documents ->

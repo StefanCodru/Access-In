@@ -14,4 +14,9 @@
     <string name="hotels">Hotels</string>
     <string name="transportation">Transportation</string>
     <string name="accessibility">Accessibility</string>
+    <string name="no_locations_saved_yet">You haven\'t saved any locations yet!</string>
+    <string name="details">Details</string>
+    <string name="rating_for_movement_disabilities">Rating for movement disabilities</string>
+    <string name="rating_for_visual_disabilities">Rating for visual disabilities</string>
+    <string name="rating_for_auditory_disabilities">Rating for auditory disabilities</string>
 </resources>

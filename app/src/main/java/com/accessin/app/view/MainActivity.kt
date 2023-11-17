@@ -12,6 +12,7 @@ import com.accessin.app.R
 import com.accessin.app.databinding.ActivityMainBinding
 import com.accessin.app.model.util.LocationTypeConstants
 import com.accessin.app.model.util.UiState
+import com.accessin.app.view.adapters.LocationDetailsAdapter
 import com.accessin.app.view.adapters.SavedLocationsAdapter
 import com.accessin.app.view.adapters.ScrollableSectionAdapter
 import com.accessin.app.view.adapters.ScrollableSectionsAdapter
@@ -40,6 +41,9 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var searchedLocationsAdapter: SearchedLocationsAdapter
+
+    @Inject
+    lateinit var locationDetailsAdapter: LocationDetailsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

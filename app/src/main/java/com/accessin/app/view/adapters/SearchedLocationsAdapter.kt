@@ -14,7 +14,7 @@ class SearchedLocationsAdapter:  RecyclerView.Adapter<SearchedLocationsAdapter.S
 
     private val callback = object: DiffUtil.ItemCallback<Location>(){
         override fun areItemsTheSame(oldItem: Location, newItem: Location): Boolean {
-            return oldItem.geoPoint == newItem.geoPoint
+            return oldItem.latitude == newItem.latitude
         }
 
         override fun areContentsTheSame(oldItem: Location, newItem: Location): Boolean {
@@ -45,8 +45,8 @@ class SearchedLocationsAdapter:  RecyclerView.Adapter<SearchedLocationsAdapter.S
         fun bind(location: Location){
             binding.searchedLocationTitle.text = location.name
             binding.searchedLocationAddress.text = location.address
-            binding.searchedLocationRating.rating = location.general_rating?.toFloat()!!
-            Picasso.get().load("https://newsviews.thuraswiss.com/wp-content/uploads/2019/10/Starbucks-postpones-Myanmar-entry.jpg").into(binding.searchedLocationItemImage)
+            binding.searchedLocationRating.rating = location.generalRating!!
+            Picasso.get().load(location.imageURL).into(binding.searchedLocationItemImage)
 
             binding.root.setOnClickListener {
                 onItemClickListener?.let {

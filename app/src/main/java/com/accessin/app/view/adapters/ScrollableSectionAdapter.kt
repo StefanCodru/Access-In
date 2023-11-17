@@ -1,5 +1,6 @@
 package com.accessin.app.view.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -13,7 +14,7 @@ class ScrollableSectionAdapter:  RecyclerView.Adapter<ScrollableSectionAdapter.S
 
     private val callback = object: DiffUtil.ItemCallback<Location>(){
         override fun areItemsTheSame(oldItem: Location, newItem: Location): Boolean {
-            return oldItem.geoPoint == newItem.geoPoint
+            return oldItem.longitude == newItem.longitude
         }
 
         override fun areContentsTheSame(oldItem: Location, newItem: Location): Boolean {
@@ -42,8 +43,8 @@ class ScrollableSectionAdapter:  RecyclerView.Adapter<ScrollableSectionAdapter.S
 
         fun bind(location: Location) {
             binding.scrollableSectionLocationTitle.text = location.name
-            binding.scrollableSectionLocationRating.rating = location.general_rating?.toFloat()!!
-            Picasso.get().load(location.image_url).into(binding.scrollableSectionLocationImage)
+            binding.scrollableSectionLocationRating.rating = location.generalRating!!
+            Picasso.get().load(location.imageURL).into(binding.scrollableSectionLocationImage)
 
             binding.root.setOnClickListener {
                 onItemClickListener?.let {

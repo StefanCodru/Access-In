@@ -138,10 +138,9 @@ class AccessInViewModel(
 
     }
 
+    fun getUserLocation() {
 
-
-
-
+    }
 
     private fun isNetworkAvailable(context: Context?): Boolean{
         if(context == null) return false

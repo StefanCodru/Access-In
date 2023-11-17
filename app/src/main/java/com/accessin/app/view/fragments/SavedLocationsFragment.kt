@@ -1,5 +1,6 @@
 package com.accessin.app.view.fragments
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -66,8 +67,11 @@ class SavedLocationsFragment : Fragment() {
 
             hideProgressBar()
 
-            if(it.isNotEmpty()){
+            if(it.isNotEmpty()) {
                 savedLocationsAdapter.differ.submitList(it.toList())
+            } else {
+                binding.savedLocationsRecyclerview.visibility = View.GONE
+                binding.noLocationsConstraintLayout.visibility = View.VISIBLE
             }
         }
 

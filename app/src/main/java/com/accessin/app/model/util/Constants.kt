@@ -4,7 +4,7 @@ object FireStoreFields {
     val TABLE_LOCATIONS = "locations"
     val COLLECTION_ACCESSIBILITY_DATA = "accessibility_data"
     val AREAS_INFO_FIELD = "areasInfo"
-    val GENERAL_RATING_FIELD = "generalRating"
+    val GENERAL_RATING_FIELD = "general_rating"
     val LATITUDE_FIELD = "latitude"
     val LONGITUDE_FIELD = "longitude"
     val GEOHASH_FIELD = "geohash"

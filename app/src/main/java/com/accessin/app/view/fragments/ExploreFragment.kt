@@ -51,15 +51,12 @@ class ExploreFragment : Fragment() {
 
         initRecyclerView()
         getScrollableSections()
-        setupSearch()
+        //setupSearch()
     }
 
     private fun initRecyclerView(){
         binding.scrollableSectionsRecyclerview.adapter = scrollableSectionsAdapter
         binding.scrollableSectionsRecyclerview.layoutManager = LinearLayoutManager(activity)
-
-        binding.exploreSearchContentRecyclerview.adapter = searchedLocationsAdapter
-        binding.exploreSearchContentRecyclerview.layoutManager = LinearLayoutManager(activity)
     }
 
     private fun getScrollableSections(){
@@ -74,13 +71,11 @@ class ExploreFragment : Fragment() {
                         scrollableSectionsAdapter.differ.submitList(it)
 
                         scrollableSectionsAdapter.setOnItemClickListener { location ->
-                            viewModel.saveLocation(location)
-
                             val bundle = Bundle().apply {
                                 putSerializable("selected_location", location)
                             }
 
-                            findNavController().navigate(R.id.mapFragment, bundle)
+                            findNavController().navigate(R.id.action_exploreFragment_to_mapFragment, bundle)
                         }
 
                     }
@@ -100,7 +95,7 @@ class ExploreFragment : Fragment() {
         }
     }
 
-
+    /*
     private fun setupSearch(){
 
         binding.exploreSearchView.setOnQueryTextFocusChangeListener { view, hasFocus ->
@@ -172,6 +167,7 @@ class ExploreFragment : Fragment() {
     }
 
 
+
     private fun showSearchRecyclerView(){
 
         binding.exploreContentScrollview
@@ -207,6 +203,8 @@ class ExploreFragment : Fragment() {
             })
 
     }
+
+     */
 
 
 

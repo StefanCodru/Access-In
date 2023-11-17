@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.accessin.app.model.data.room.AccessInDao
 import com.accessin.app.model.data.room.AccessInDatabase
+import com.accessin.app.view.adapters.LocationDetailsAdapter
 import com.accessin.app.view.adapters.SavedLocationsAdapter
 import com.accessin.app.view.adapters.ScrollableSectionAdapter
 import com.accessin.app.view.adapters.ScrollableSectionsAdapter
@@ -34,6 +35,12 @@ class AdapterModule {
     @Provides
     fun provideSearchedLocationsAdapter(): SearchedLocationsAdapter {
         return SearchedLocationsAdapter()
+    }
+
+    @Singleton
+    @Provides
+    fun provideLocationDetailsAdapter(): LocationDetailsAdapter {
+        return LocationDetailsAdapter()
     }
 
 
